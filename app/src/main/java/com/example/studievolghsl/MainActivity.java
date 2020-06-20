@@ -10,8 +10,14 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class MainActivity extends AppCompatActivity {
+
+    RecyclerView recyclerView;
+    String s1[],s2[],s3[],s4[],s5[];
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +34,20 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
+
+        recyclerView = findViewById(R.id.GradeView);
+
+        //gooi items uit strings.xml naar een array
+        s1 = getResources().getStringArray(R.array.vakken);
+        s2 = getResources().getStringArray(R.array.jaar);
+        s3 = getResources().getStringArray(R.array.Grade);
+        s4 = getResources().getStringArray(R.array.TypeOfModule);
+        s5 = getResources().getStringArray(R.array.ECTS);
+        //Geef alle data mee aan een adapter/handler, Die gooit het mooi in een Recycler view die je eerder heb aangemaakt.
+        GradeViewAdapter myAdapter = new GradeViewAdapter(this, s1, s2, s3, s4, s5);
+        recyclerView.setAdapter(myAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
     }
 
     //main() bevat het volgende:
