@@ -35,10 +35,10 @@ public class GradeViewAdapter extends RecyclerView.Adapter<GradeViewAdapter.MyVi
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         holder.myText1.setText(names[position]);
-        holder.myText2.setText(years[position]);
-        holder.myText3.setText(grades[position]);
-        holder.myText4.setText(types[position]);
-        holder.myText5.setText(ECTS[position]);
+        holder.myText2.setText("Year: " + years[position]);
+        holder.myText3.setText("Grade: " +grades[position]);
+        holder.myText4.setText("Type: " +types[position]);
+        holder.myText5.setText("ECTS: "+ECTS[position]);
     }
 
     @Override

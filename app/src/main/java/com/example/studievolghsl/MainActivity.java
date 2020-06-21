@@ -1,6 +1,7 @@
 package com.example.studievolghsl;
 
 import android.os.Bundle;
+import android.view.View;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -15,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class MainActivity extends AppCompatActivity {
 
+
     RecyclerView recyclerView;
     String s1[],s2[],s3[],s4[],s5[];
 
@@ -24,7 +26,10 @@ public class MainActivity extends AppCompatActivity {
         //basic app met navbar
         FloatingActionButton fab = findViewById(R.id.FilterKnoppie);
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
+
+
         BottomNavigationView navView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
@@ -35,8 +40,9 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
 
-        recyclerView = findViewById(R.id.GradeView);
 
+
+        recyclerView = findViewById(R.id.GradeView);
         //gooi items uit strings.xml naar een array
         s1 = getResources().getStringArray(R.array.vakken);
         s2 = getResources().getStringArray(R.array.jaar);
@@ -79,4 +85,4 @@ public class MainActivity extends AppCompatActivity {
             //AddNotes()
             //ApplyFilter()
 
-}
+};
